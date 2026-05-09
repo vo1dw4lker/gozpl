@@ -50,7 +50,7 @@ func (l *Label) AddText(x, y int, text string, opts ...TextOption) *Label {
 	for _, opt := range opts {
 		opt(&cfg)
 	}
-	cmd := fmt.Sprintf("^FO%d,%d^A%s,%s,%d,%d", x, y, cfg.fontName, string(cfg.orientation), cfg.fontHeight, cfg.fontWidth)
+	cmd := fmt.Sprintf("^FO%d,%d^A%s%s,%d,%d", x, y, cfg.fontName, string(cfg.orientation), cfg.fontHeight, cfg.fontWidth)
 	if cfg.useFieldBlock {
 		cmd += fmt.Sprintf("^FB%d,%d,%d,%s", cfg.fbWidth, cfg.fbMaxLines, cfg.fbLineSpacing, cfg.fbAlignment)
 	}
