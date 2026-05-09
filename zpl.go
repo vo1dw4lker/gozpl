@@ -34,7 +34,7 @@ func (l *Label) Reset() {
 }
 
 func (l *Label) AddText(x, y int, font string, size int, text string) *Label {
-	cmd := "^FO%d,%d^A%s,%d^FD%s^FS"
+	cmd := "^FO%d,%d^A%s,%d^FD%s^FS\n"
 	l.builder.WriteString(fmt.Sprintf(
 		cmd,
 		x, y,
@@ -46,7 +46,7 @@ func (l *Label) AddText(x, y int, font string, size int, text string) *Label {
 }
 
 func (l *Label) AddCode128(x, y int, height int, data string) *Label {
-	cmd := "^FO%d,%d^BCN,%d,N,N,Y,A^FD%s^FS"
+	cmd := "^FO%d,%d^BCN,%d,N,N,Y,A^FD%s^FS\n"
 	l.builder.WriteString(fmt.Sprintf(
 		cmd,
 		x, y,
