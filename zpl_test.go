@@ -48,7 +48,7 @@ func TestLabel_Settings(t *testing.T) {
 		for _, o := range orientations {
 			l := NewLabel()
 			l.AddText(0, 0, "test", WithTextOrientation(o))
-			expected := "^XA\n^FO0,0^AA," + string(o) + ",15,15^FDtest^FS\n^XZ\n"
+			expected := "^XA\n^FO0,0^AA" + string(o) + ",15,15^FDtest^FS\n^XZ\n"
 			if result := l.String(); result != expected {
 				t.Errorf("Orientation %s mismatch\nGot: %q\nExp: %q", o, result, expected)
 			}
@@ -110,7 +110,7 @@ func TestLabel_Complex(t *testing.T) {
 		"^XA",
 		"^PW400",
 		"^LL400",
-		"^FO50,50^A0,N,40,40^FDHEADER^FS",
+		"^FO50,50^A0N,40,40^FDHEADER^FS",
 		"^FO50,100^GB300,5,1,B,0^FS",
 		"^FO50,150^BCN,60,Y,N,N,N^FD12345678^FS",
 		"^FO50,250^BQN,2,4^FDQA,https://example.com^FS",
