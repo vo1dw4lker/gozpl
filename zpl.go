@@ -33,6 +33,26 @@ func (l *Label) Reset() {
 	l.builder.Reset()
 }
 
+func (l *Label) SetQuantity(q int) *Label {
+	l.builder.WriteString(fmt.Sprintf("^PQ%d\n", q))
+	return l
+}
+
+func (l *Label) SetPrintWidth(w int) *Label {
+	l.builder.WriteString(fmt.Sprintf("^PW%d\n", w))
+	return l
+}
+
+func (l *Label) SetLabelLength(len int) *Label {
+	l.builder.WriteString(fmt.Sprintf("^LL%d\n", len))
+	return l
+}
+
+func (l *Label) SetPrintRate(rate int) *Label {
+	l.builder.WriteString(fmt.Sprintf("^PR%d\n", rate))
+	return l
+}
+
 func (l *Label) AddText(x, y int, font string, size int, text string) *Label {
 	cmd := "^FO%d,%d^A%s,%d^FD%s^FS\n"
 	l.builder.WriteString(fmt.Sprintf(
