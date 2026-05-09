@@ -27,3 +27,7 @@ func (l *Label) AddRaw(cmd string) *Label {
 	l.builder.WriteString(cmd + "\n")
 	return l
 }
+
+func (l *Label) Reset() {
+	l.builder.Reset()
+}
