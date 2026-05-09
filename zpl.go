@@ -14,7 +14,7 @@ func NewLabel() *Label {
 }
 
 func (l *Label) String() string {
-	return l.builder.String()
+	return "^XA\n" + l.builder.String() + "^XZ\n"
 }
 
 func (l *Label) WriteTo(w io.Writer) (int64, error) {
