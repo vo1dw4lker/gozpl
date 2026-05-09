@@ -1,6 +1,7 @@
 package zpl
 
 import (
+	"fmt"
 	"io"
 	"strings"
 )
@@ -30,4 +31,16 @@ func (l *Label) AddRaw(cmd string) *Label {
 
 func (l *Label) Reset() {
 	l.builder.Reset()
+}
+
+func (l *Label) AddText(x, y int, font string, size int, text string) *Label {
+	cmd := "^FO%d,%d^A%s,%d^FD%s^FS"
+	l.builder.WriteString(fmt.Sprintf(
+		cmd,
+		x, y,
+		font,
+		size,
+		text,
+	))
+	return l
 }
