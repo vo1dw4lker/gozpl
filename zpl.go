@@ -44,3 +44,14 @@ func (l *Label) AddText(x, y int, font string, size int, text string) *Label {
 	))
 	return l
 }
+
+func (l *Label) AddCode128(x, y int, height int, data string) *Label {
+	cmd := "^FO%d,%d^BCN,%d,N,N,Y,A^FD%s^FS"
+	l.builder.WriteString(fmt.Sprintf(
+		cmd,
+		x, y,
+		height,
+		data,
+	))
+	return l
+}
